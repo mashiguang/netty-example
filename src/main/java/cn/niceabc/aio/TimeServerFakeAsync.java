@@ -1,4 +1,4 @@
-package cn.niceabc.socket.bio;
+package cn.niceabc.aio;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,22 +9,30 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
- * 同步阻塞io
- * 一个线程只能处理一个客户端连接，客户端暴增可能会造成服务端线程资源耗尽。
+ * 伪异步io
+ * 这个和异步一点关系都没有，只是服务端使用了线程池，可以防止服务端线程暴增。
+ * 通信过程还是同步阻塞的。
+ *
+ * 可以使用客户端cn.niceabc.socket.bio.TimeClient
  * */
-public class TimeServer {
-    private static Logger log = LoggerFactory.getLogger(TimeServer.class);
+public class TimeServerFakeAsync {
+    private static Logger log = LoggerFactory.getLogger(TimeServerFakeAsync.class);
 
     public static void main(String[] args) throws IOException {
+
+        ExecutorService exe = Executors.newFixedThreadPool(10);
+
         int port = 8080;
         ServerSocket server = new ServerSocket(port);
 
         while (true) {
             log.debug("server is start on port: {}", port);
             Socket socket = server.accept();
-            new Thread(new TimeServerHandler(socket)).start();
+            exe.execute(new TimeServerHandler(socket));
         }
 
     }

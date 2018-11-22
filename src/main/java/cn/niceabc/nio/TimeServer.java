@@ -1,4 +1,4 @@
-package cn.niceabc.socket.nio;
+package cn.niceabc.nio;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

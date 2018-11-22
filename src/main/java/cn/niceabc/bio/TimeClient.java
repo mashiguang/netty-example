@@ -1,4 +1,4 @@
-package cn.niceabc.socket.bio;
+package cn.niceabc.bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
