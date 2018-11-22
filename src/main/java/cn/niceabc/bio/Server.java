@@ -14,8 +14,8 @@ import java.net.Socket;
  * 同步阻塞io
  * 一个线程只能处理一个客户端连接，客户端暴增可能会造成服务端线程资源耗尽。
  * */
-public class TimeServer {
-    private static Logger log = LoggerFactory.getLogger(TimeServer.class);
+public class Server {
+    private static Logger log = LoggerFactory.getLogger(Server.class);
 
     public static void main(String[] args) throws IOException {
         int port = 8080;

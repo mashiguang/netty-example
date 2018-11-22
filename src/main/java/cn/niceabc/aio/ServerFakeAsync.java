@@ -17,10 +17,10 @@ import java.util.concurrent.Executors;
  * 这个和异步一点关系都没有，只是服务端使用了线程池，可以防止服务端线程暴增。
  * 通信过程还是同步阻塞的。
  *
- * 可以使用客户端cn.niceabc.socket.bio.TimeClient
+ * 可以使用客户端cn.niceabc.bio.Client
  * */
-public class TimeServerFakeAsync {
-    private static Logger log = LoggerFactory.getLogger(TimeServerFakeAsync.class);
+public class ServerFakeAsync {
+    private static Logger log = LoggerFactory.getLogger(ServerFakeAsync.class);
 
     public static void main(String[] args) throws IOException {
 

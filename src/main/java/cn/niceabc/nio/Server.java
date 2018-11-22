@@ -17,8 +17,8 @@ import java.util.Set;
  * 同步非阻塞io
  * 使用selector多路复用器
  * */
-public class TimeServer {
-    private static Logger log = LoggerFactory.getLogger(TimeServer.class);
+public class Server {
+    private static Logger log = LoggerFactory.getLogger(Server.class);
 
     public static void main(String[] args) {
         int port = 8080;
