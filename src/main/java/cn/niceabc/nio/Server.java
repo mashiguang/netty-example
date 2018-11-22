@@ -24,18 +24,18 @@ public class Server {
         int port = 8080;
 
         log.debug("server is start on port: {}", port);
-        new Thread(new TimeServerHandler(port)).start();
+        new Thread(new ServerHandler(port)).start();
 
     }
 
-    private static class TimeServerHandler implements Runnable {
+    private static class ServerHandler implements Runnable {
 
         private Selector selector;
         private ServerSocketChannel serverSocketChannel;
         private volatile boolean closed = false;
 
 
-        public TimeServerHandler(int port) {
+        public ServerHandler(int port) {
 
             try {
                 selector = Selector.open();

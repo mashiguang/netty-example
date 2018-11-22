@@ -19,7 +19,7 @@ public class Client {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        TimeClientHandler client = new TimeClientHandler();
+        ClientHandler client = new ClientHandler();
         new Thread(client).start();
 
         Thread.sleep(1000);
@@ -27,14 +27,14 @@ public class Client {
         client.sendMsg("Tom");
     }
 
-    private static class TimeClientHandler implements Runnable {
+    private static class ClientHandler implements Runnable {
 
         private Selector selector;
         private SocketChannel socketChannel;
 
         private volatile boolean closed = false;
 
-        public TimeClientHandler() {
+        public ClientHandler() {
 
             try {
                 selector = Selector.open();

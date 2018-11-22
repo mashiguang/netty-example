@@ -1,4 +1,4 @@
-package cn.niceabc.aio;
+package cn.niceabc.bio;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +19,8 @@ import java.util.concurrent.Executors;
  *
  * 可以使用客户端cn.niceabc.bio.Client
  * */
-public class ServerFakeAsync {
-    private static Logger log = LoggerFactory.getLogger(ServerFakeAsync.class);
+public class ServerThreadPool {
+    private static Logger log = LoggerFactory.getLogger(ServerThreadPool.class);
 
     public static void main(String[] args) throws IOException {
 
